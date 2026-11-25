@@ -435,7 +435,12 @@ footer small{color:var(--muted)}
       v('dest') ? 'Destination: ' + v('dest') : '',
       v('msg') ? 'Details: ' + v('msg') : ''
     ].filter((l, i) => l !== '' || i === 1);
-    window.open('https://wa.me/260964778720?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+    const url = 'https://wa.me/260964778720?text=' + encodeURIComponent(lines.join('\n'));
+    // Same-tab navigation: works on every phone and browser, and is never blocked as a popup
+    try { window.top.location.href = url; } catch (err) { window.location.href = url; }
+    // Fallback link in case the browser still does not move on
+    const note = document.querySelector('#bookingForm .note');
+    note.innerHTML = 'Opening WhatsApp... if nothing happens, <a href="' + url + '" target="_blank" rel="noopener" style="color:#ffc400;font-weight:700;text-decoration:underline">tap here to send your request</a>.';
   });
 </script>
 </body>
