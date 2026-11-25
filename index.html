@@ -446,17 +446,17 @@ footer small{color:var(--muted)}
       return;
     }
     const lines = [
-      'Hello Namdash Car Hire, I would like to book a vehicle.',
+      '*NEW VEHICLE HIRE REQUEST*',
       '',
-      'Name: ' + val('name'),
-      'Phone: ' + val('phone'),
-      'Vehicle: ' + val('vehicle'),
-      'Hire start date: ' + formatDate(val('pickup')),
-      val('return') ? 'Return date: ' + formatDate(val('return')) : null,
-      'Delivery location: ' + val('delivery'),
-      val('dtime') ? 'Delivery time: ' + val('dtime') : null,
-      val('msg') ? 'Details: ' + val('msg') : null
-    ].filter(l => l !== null);
+      'Full Name: ' + val('name'),
+      'Phone Number: ' + val('phone'),
+      'Vehicle Type: ' + val('vehicle'),
+      'Hire Start Date: ' + formatDate(val('pickup')),
+      'Return Date: ' + (val('return') ? formatDate(val('return')) : 'Not specified'),
+      'Delivery Location: ' + val('delivery'),
+      'Delivery Time: ' + (val('dtime') || 'Not specified'),
+      'Extra Details: ' + (val('msg') || 'None')
+    ];
     const url = 'https://wa.me/260964778720?text=' + encodeURIComponent(lines.join('\n'));
     note.innerHTML = 'Opening WhatsApp... if nothing happens, <a href="' + url + '" target="_blank" rel="noopener" style="color:#ffc400;font-weight:700;text-decoration:underline">tap here to send your request</a>.';
     window.location.href = url;
