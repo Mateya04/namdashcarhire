@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Namdash Car Hire | Your Journey, Our Priority</title>
+<meta name="description" content="Namdash Car Hire - reliable, comfortable and safe vehicle hire with 24/7 service. Pickups, SUVs and coaches for every journey.">
+<meta name="theme-color" content="#0a1a44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800;1,900&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1a44; --navy-2:#071236; --navy-3:#112463; --gold:#ffc400; --gold-2:#e6ae00;
+  --white:#fff; --muted:#b9c3e0; --card:#0f2058; --line:rgba(255,196,0,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',system-ui,sans-serif;background:var(--navy-2);color:var(--white);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+.container{width:min(1140px,92%);margin-inline:auto}
+section{padding:84px 0}
+.eyebrow{color:var(--gold);font-weight:700;letter-spacing:.18em;font-size:.78rem;text-transform:uppercase}
+h2.title{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;line-height:1.15;margin:.5rem 0 1rem}
+h2.title span{color:var(--gold)}
+.lead{color:var(--muted);max-width:620px}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:14px 26px;border-radius:999px;font-weight:700;font-size:.95rem;border:2px solid transparent;cursor:pointer;transition:.25s;font-family:inherit}
+.btn-gold{background:var(--gold);color:var(--navy-2)}
+.btn-gold:hover{background:var(--gold-2);transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,196,0,.3)}
+.btn-ghost{border-color:var(--gold);color:var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--navy-2)}
+.btn svg{width:18px;height:18px}
+
+/* nav */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.3s}
+header.scrolled{background:rgba(7,18,54,.95);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.35)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-style:italic;font-size:1.25rem;letter-spacing:.02em}
+.brand svg{width:38px;height:38px}
+.brand b{color:var(--gold)}
+nav ul{display:flex;gap:30px;list-style:none;align-items:center}
+nav a.link{font-weight:600;font-size:.88rem;color:#e3e8f7;position:relative}
+nav a.link:after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:.25s}
+nav a.link:hover:after{width:100%}
+.burger{display:none;background:none;border:0;color:#fff;cursor:pointer}
+.burger svg{width:30px;height:30px}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:110px;
+  background:radial-gradient(ellipse at 50% 0%,#17317f 0%,var(--navy) 45%,var(--navy-2) 100%)}
+.hero:before{content:"";position:absolute;inset:0;opacity:.18;
+  background:linear-gradient(transparent 60%,#000),repeating-linear-gradient(90deg,transparent 0 46px,rgba(255,255,255,.06) 46px 48px);
+  -webkit-mask-image:linear-gradient(transparent,#000 70%);mask-image:linear-gradient(transparent,#000 70%)}
+.hero .container{position:relative;text-align:center}
+.wheel{width:92px;margin:0 auto 14px;filter:drop-shadow(0 0 22px rgba(255,255,255,.25))}
+.hero h1{font-size:clamp(3rem,12vw,7.5rem);font-weight:900;font-style:italic;line-height:.95;letter-spacing:-.02em}
+.hero .sub{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:6px}
+.hero .sub strong{font-size:clamp(1.8rem,7vw,4.4rem);font-weight:900;font-style:italic;color:var(--gold);line-height:1}
+.hero .sub i{display:block;width:clamp(30px,8vw,110px);height:20px;background:
+  linear-gradient(var(--gold),var(--gold)) 0 0/100% 3px no-repeat,
+  linear-gradient(var(--gold),var(--gold)) 15% 50%/85% 3px no-repeat,
+  linear-gradient(var(--gold),var(--gold)) 30% 100%/70% 3px no-repeat}
+.hero .sub i:last-child{transform:scaleX(-1)}
+.tagline{margin-top:24px;font-weight:700;font-size:clamp(.95rem,2.4vw,1.25rem);letter-spacing:.04em}
+.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.hero .script{font-family:'Dancing Script',cursive;color:var(--gold);font-size:1.6rem;margin-top:36px}
+
+/* trust bar */
+.trust{background:var(--navy);border-block:1px solid var(--line);padding:26px 0}
+.trust .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trust .item{display:flex;align-items:center;justify-content:center;gap:12px;font-weight:700;font-size:.9rem;text-transform:uppercase;letter-spacing:.04em}
+.trust svg{width:34px;height:34px;color:var(--gold);flex:none}
+
+/* fleet */
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px}
+.card{background:linear-gradient(180deg,var(--card),var(--navy));border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.card .art{height:190px;display:grid;place-items:center;background:radial-gradient(circle at 50% 70%,#1b3a95,transparent 70%)}
+.card .art svg{width:78%;height:auto;color:#fff;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5))}
+.card .body{padding:24px}
+.card h3{font-size:1.3rem;font-weight:800}
+.card p{color:var(--muted);font-size:.92rem;margin:8px 0 18px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tags span{font-size:.72rem;font-weight:700;color:var(--gold);border:1px solid var(--line);padding:4px 11px;border-radius:999px}
+.card .btn{width:100%;justify-content:center;padding:12px}
+
+/* why */
+.why{background:var(--navy)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+.why-item{padding:30px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);text-align:center;transition:.3s}
+.why-item:hover{background:rgba(255,196,0,.07);transform:translateY(-5px)}
+.ico{width:62px;height:62px;border-radius:50%;background:rgba(255,196,0,.12);border:1px solid var(--gold);display:grid;place-items:center;margin:0 auto 16px;color:var(--gold)}
+.ico svg{width:30px;height:30px}
+.why-item h3{font-size:1.05rem;margin-bottom:6px}
+.why-item p{font-size:.88rem;color:var(--muted)}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.svc{display:flex;gap:16px;padding:24px;border-radius:16px;background:var(--card);border-left:4px solid var(--gold)}
+.svc svg{width:30px;height:30px;color:var(--gold);flex:none;margin-top:3px}
+.svc h3{font-size:1.02rem;margin-bottom:4px}
+.svc p{font-size:.88rem;color:var(--muted)}
+
+/* steps */
+.steps{background:var(--navy)}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:48px;counter-reset:s}
+.step{text-align:center;position:relative;padding:0 10px}
+.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--gold);color:var(--navy-2);font-weight:900;font-size:1.5rem;margin:0 auto 16px;box-shadow:0 0 0 8px rgba(255,196,0,.15)}
+.step h3{margin-bottom:6px}
+.step p{color:var(--muted);font-size:.92rem}
+
+/* booking */
+.book-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:start}
+.book-info ul{list-style:none;margin-top:26px;display:grid;gap:14px}
+.book-info li{display:flex;gap:12px;align-items:center;color:#dfe5f7;font-weight:500}
+.book-info li svg{width:22px;height:22px;color:var(--gold);flex:none}
+.book-info li a{transition:.2s}
+.book-info li a:hover{color:var(--gold)}
+form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px;display:grid;gap:16px;grid-template-columns:1fr 1fr}
+form .full{grid-column:1/-1}
+label{display:block;font-size:.76rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+input,select,textarea{width:100%;padding:13px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.18);background:var(--navy-2);color:#fff;font:inherit;font-size:.93rem}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:transparent}
+input::-webkit-calendar-picker-indicator{filter:invert(1)}
+textarea{resize:vertical;min-height:90px}
+form .btn{justify-content:center}
+.note{font-size:.76rem;color:var(--muted);text-align:center}
+
+/* contact */
+.contact{background:var(--navy)}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.c-card{border:1px solid var(--line);border-radius:20px;padding:34px 24px;text-align:center;background:rgba(255,255,255,.03);transition:.3s}
+.c-card:hover{border-color:var(--gold);transform:translateY(-6px)}
+.c-card .ico{width:70px;height:70px}
+.c-card h3{font-size:.8rem;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.c-card a.val{font-size:1.1rem;font-weight:700;word-break:break-all}
+.c-card a.val:hover{color:var(--gold)}
+
+/* footer */
+footer{padding:44px 0 30px;border-top:1px solid var(--line);text-align:center}
+footer .script{font-family:'Dancing Script',cursive;color:var(--gold);font-size:1.5rem;margin:8px 0 18px}
+footer small{color:var(--muted)}
+
+/* floating whatsapp */
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:pulse 2.4s infinite}
+.wa svg{width:32px;height:32px;color:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .fleet-grid,.svc-grid,.contact-grid{grid-template-columns:1fr 1fr}
+  .why-grid,.trust .grid{grid-template-columns:1fr 1fr}
+  .book-wrap{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  section{padding:64px 0}
+  .burger{display:block}
+  nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--navy-2);padding:24px;gap:20px;display:none;border-bottom:1px solid var(--line)}
+  nav ul.open{display:flex}
+  header.menu-open{background:var(--navy-2)}
+  .fleet-grid,.svc-grid,.contact-grid,.steps-grid,.why-grid{grid-template-columns:1fr}
+  .trust .grid{grid-template-columns:1fr 1fr;gap:16px}
+  .trust .item{font-size:.72rem;flex-direction:column;gap:6px;text-align:center}
+  form{grid-template-columns:1fr;padding:24px}
+  .hero .sub i{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- reusable icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wheel" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="6"/><circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 46c14 4 24 2 36 2s22 2 36-2M50 50v34M50 50 30 76M50 50l20 26" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="48" r="7" fill="currentColor"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A9.9 9.9 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.35-2 1.4-.52.06-1.18.08-1.9-.12a17 17 0 0 1-1.73-.64c-3.05-1.3-5.03-4.4-5.18-4.6-.15-.2-1.24-1.64-1.24-3.13s.78-2.22 1.06-2.52c.28-.3.6-.38.8-.38l.58.01c.19 0 .43-.07.67.5.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.38-.45.51-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.05 1.13 1 2.09 1.32 2.39 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.28.1 1.75.83 2.05.98.3.15.5.22.57.35.08.12.08.72-.17 1.42Z"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1Z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.2L4.5 7v.1L12 12.3 19.5 7.1V7L12 12.2Zm-8 5.8h16V9.2l-8 5.6-8-5.6V18Z"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 2.5 4 5.5v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10v-6l-8-3Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="seat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 3.5c-1.5 0-2.4 1.2-2.2 2.6l1.5 9.4h7.7l2.2 4.5M7.3 15.5 6 19.5h4"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 6.5V12l3.5 2"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14c2.6 0 4.5 1.6 4.5 4.5"/></g></symbol>
+  <symbol id="brief" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></g></symbol>
+  <symbol id="plane" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m2.5 13 8-2-3-7h2l6 6.5 5-1.5c1 0 1.6.6 1.6 1.3s-.7 1.4-1.6 1.5l-5 1.5-4 7h-2l1.5-7.5-8 2Z"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 20s-8-4.9-8-11a4.5 4.5 0 0 1 8-2.7A4.5 4.5 0 0 1 20 9c0 6.1-8 11-8 11Z"/></symbol>
+  <symbol id="route" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8 18h7a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h7"/></g></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+</svg>
+
+<header id="top">
+  <div class="container nav">
+    <a href="#home" class="brand" aria-label="Namdash Car Hire home">
+      <svg><use href="#wheel"/></svg>
+      <span>NAMDASH <b>CAR HIRE</b></span>
+    </a>
+    <nav>
+      <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <ul id="menu">
+        <li><a class="link" href="#fleet">Our Fleet</a></li>
+        <li><a class="link" href="#why">Why Us</a></li>
+        <li><a class="link" href="#services">Services</a></li>
+        <li><a class="link" href="#how">How It Works</a></li>
+        <li><a class="link" href="#contact">Contact</a></li>
+        <li><a class="btn btn-gold" style="padding:10px 22px" href="#book">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <svg class="wheel" style="color:#fff" viewBox="0 0 100 100"><use href="#wheel"/></svg>
+      <h1>NAMDASH</h1>
+      <div class="sub"><i></i><strong>CAR HIRE</strong><i></i></div>
+      <p class="tagline">~ YOUR JOURNEY, OUR PRIORITY ~</p>
+      <div class="cta">
+        <a href="#book" class="btn btn-gold"><svg><use href="#cal"/></svg> Book a Vehicle</a>
+        <a href="tel:+260974348668" class="btn btn-ghost"><svg><use href="#phone"/></svg> Call +260 974 348 668</a>
+      </div>
+      <p class="script">Best Car Hire for a Smooth and Memorable Journey!</p>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <div class="trust">
+    <div class="container grid">
+      <div class="item"><svg><use href="#shield"/></svg>Reliable</div>
+      <div class="item"><svg><use href="#seat"/></svg>Comfortable</div>
+      <div class="item"><svg viewBox="0 0 100 100"><use href="#wheel"/></svg>Safe</div>
+      <div class="item"><svg><use href="#clock"/></svg>24/7 Service</div>
+    </div>
+  </div>
+
+  <!-- FLEET -->
+  <section id="fleet">
+    <div class="container center">
+      <span class="eyebrow">Our Fleet</span>
+      <h2 class="title">The Right Vehicle for <span>Every Journey</span></h2>
+      <p class="lead">From rugged pickups to comfortable SUVs and spacious coaches, we have you covered whether you are travelling solo or with a whole group.</p>
+
+      <div class="fleet-grid">
+        <article class="card reveal">
+          <div class="art">
+            <svg viewBox="0 0 300 120" fill="none"><path d="M18 84V66c0-6 3-9 9-10l38-8 28-26c3-3 6-4 10-4h50c5 0 8 2 10 6l12 24h66c8 0 14 6 14 14v22c0 4-3 6-6 6h-12" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M18 84h16M86 84h98M246 84h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M92 46l18-18h42v20H92Z M160 28h20l10 20h-30Z" fill="currentColor" opacity=".25"/><circle cx="60" cy="88" r="17" fill="#0a1a44" stroke="currentColor" stroke-width="4"/><circle cx="60" cy="88" r="6" fill="currentColor"/><circle cx="214" cy="88" r="17" fill="#0a1a44" stroke="currentColor" stroke-width="4"/><circle cx="214" cy="88" r="6" fill="currentColor"/></svg>
+          </div>
+          <div class="body">
+            <h3>Double-Cab Pickups</h3>
+            <p>Tough, capable and ready for city streets or open roads. Ideal for work trips, luggage-heavy travel and rougher terrain.</p>
+            <div class="tags"><span>4x4 capable</span><span>Spacious</span><span>Durable</span></div>
+            <a class="btn btn-ghost" href="#book" data-vehicle="Double-Cab Pickup">Request this vehicle</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="art">
+            <svg viewBox="0 0 300 120" fill="none"><path d="M16 86V68c0-7 4-11 10-12l30-6 26-24c4-4 8-5 13-5h84c6 0 10 2 13 6l18 22 36 8c8 2 13 7 13 14v19c0 3-2 5-5 5h-12" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M16 86h16M90 86h96M250 86h20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M88 50l20-18h38v18Z M154 32h22l16 18h-38Z" fill="currentColor" opacity=".25"/><circle cx="62" cy="90" r="17" fill="#0a1a44" stroke="currentColor" stroke-width="4"/><circle cx="62" cy="90" r="6" fill="currentColor"/><circle cx="222" cy="90" r="17" fill="#0a1a44" stroke="currentColor" stroke-width="4"/><circle cx="222" cy="90" r="6" fill="currentColor"/></svg>
+          </div>
+          <div class="body">
+            <h3>Premium SUVs</h3>
+            <p>Smooth, comfortable and stylish. Perfect for family trips, executive travel, weddings and getaways.</p>
+            <div class="tags"><span>Comfort</span><span>Family-friendly</span><span>Executive</span></div>
+            <a class="btn btn-ghost" href="#book" data-vehicle="Premium SUV">Request this vehicle</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="art">
+            <svg viewBox="0 0 300 120" fill="none"><rect x="14" y="22" width="272" height="64" rx="14" stroke="currentColor" stroke-width="3"/><path d="M30 34h196v26H30Z M236 34h36c6 0 10 4 10 10v16h-46Z" fill="currentColor" opacity=".25"/><path d="M60 34v26M96 34v26M132 34v26M168 34v26M204 34v26" stroke="currentColor" stroke-width="2"/><path d="M14 72h272" stroke="currentColor" stroke-width="3"/><circle cx="72" cy="90" r="16" fill="#0a1a44" stroke="currentColor" stroke-width="4"/><circle cx="72" cy="90" r="6" fill="currentColor"/><circle cx="222" cy="90" r="16" fill="#0a1a44" stroke="currentColor" stroke-width="4"/><circle cx="222" cy="90" r="6" fill="currentColor"/></svg>
+          </div>
+          <div class="body">
+            <h3>Coaches &amp; Buses</h3>
+            <p>Move large groups together in comfort. Great for tours, school trips, church groups, corporate outings and events.</p>
+            <div class="tags"><span>Group travel</span><span>Long distance</span><span>Air-con comfort</span></div>
+            <a class="btn btn-ghost" href="#book" data-vehicle="Coach / Bus">Request this vehicle</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="why">
+    <div class="container center">
+      <span class="eyebrow">Why Namdash</span>
+      <h2 class="title">A Ride You Can <span>Trust</span></h2>
+      <p class="lead">Four promises behind every trip we take with you.</p>
+      <div class="why-grid">
+        <div class="why-item reveal"><div class="ico"><svg><use href="#shield"/></svg></div><h3>Reliable</h3><p>Well-maintained vehicles and on-time service so you can plan with confidence.</p></div>
+        <div class="why-item reveal"><div class="ico"><svg><use href="#seat"/></svg></div><h3>Comfortable</h3><p>Clean, roomy interiors that make long distances feel short.</p></div>
+        <div class="why-item reveal"><div class="ico"><svg viewBox="0 0 100 100"><use href="#wheel"/></svg></div><h3>Safe</h3><p>Your safety and that of your passengers always comes first on the road.</p></div>
+        <div class="why-item reveal"><div class="ico"><svg><use href="#clock"/></svg></div><h3>24/7 Service</h3><p>Early flight or late-night trip? Reach us any time, day or night.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container center">
+      <span class="eyebrow">Services</span>
+      <h2 class="title">Hire for <span>Any Occasion</span></h2>
+      <p class="lead">Tell us where you are going and we will match you with the right vehicle.</p>
+      <div class="svc-grid" style="text-align:left">
+        <div class="svc reveal"><svg><use href="#plane"/></svg><div><h3>Airport &amp; Station Transfers</h3><p>Smooth pickups and drop-offs so you arrive relaxed.</p></div></div>
+        <div class="svc reveal"><svg><use href="#route"/></svg><div><h3>Long-Distance Trips</h3><p>Comfortable vehicles for inter-city and cross-country journeys.</p></div></div>
+        <div class="svc reveal"><svg><use href="#heart"/></svg><div><h3>Weddings &amp; Events</h3><p>Arrive in style for your special day or celebration.</p></div></div>
+        <div class="svc reveal"><svg><use href="#brief"/></svg><div><h3>Corporate Travel</h3><p>Dependable transport for staff, clients and business trips.</p></div></div>
+        <div class="svc reveal"><svg><use href="#people"/></svg><div><h3>Group &amp; Tour Travel</h3><p>Coaches for tours, schools, churches and organisations.</p></div></div>
+        <div class="svc reveal"><svg><use href="#pin"/></svg><div><h3>Everyday Hire</h3><p>Daily and multi-day hire for errands, visits and projects.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how" class="steps">
+    <div class="container center">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="title">Book in <span>3 Easy Steps</span></h2>
+      <div class="steps-grid">
+        <div class="step reveal"><h3>Send Your Request</h3><p>Fill in the booking form, WhatsApp us or give us a call.</p></div>
+        <div class="step reveal"><h3>Get Confirmation</h3><p>We confirm vehicle availability and your quote quickly.</p></div>
+        <div class="step reveal"><h3>Enjoy the Journey</h3><p>Sit back and travel safely, comfortably and on time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="book">
+    <div class="container book-wrap">
+      <div class="book-info">
+        <span class="eyebrow">Book Now</span>
+        <h2 class="title">Request a <span>Vehicle</span></h2>
+        <p class="lead">Complete the form and it opens WhatsApp with your details ready to send to our team. Prefer to talk? Call us anytime.</p>
+        <ul>
+          <li><svg><use href="#clock"/></svg> Open 24 hours, 7 days a week</li>
+          <li><svg><use href="#phone"/></svg> <a href="tel:+260974348668">+260 974 348 668</a></li>
+          <li><svg><use href="#wa"/></svg> <a href="https://wa.me/260964778720" target="_blank" rel="noopener">WhatsApp +260 964 778 720</a></li>
+          <li><svg><use href="#mail"/></svg> <a href="mailto:tembonanji2@gmail.com">tembonanji2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <form id="bookingForm" novalidate>
+        <div class="full"><label for="name">Full Name</label><input id="name" required placeholder="Your name"></div>
+        <div><label for="phone">Phone Number</label><input id="phone" type="tel" required placeholder="+260 ..."></div>
+        <div><label for="vehicle">Vehicle Type</label>
+          <select id="vehicle">
+            <option>Double-Cab Pickup</option><option>Premium SUV</option><option>Coach / Bus</option><option>Not sure yet</option>
+          </select></div>
+        <div><label for="pickup">Pickup Date</label><input id="pickup" type="date" required></div>
+        <div><label for="return">Return Date</label><input id="return" type="date"></div>
+        <div class="full"><label for="from">Pickup Location</label><input id="from" placeholder="Where should we pick you up?"></div>
+        <div class="full"><label for="dest">Destination</label><input id="dest" placeholder="Where are you travelling to?"></div>
+        <div class="full"><label for="msg">Extra Details</label><textarea id="msg" placeholder="Number of passengers, special requests..."></textarea></div>
+        <button class="btn btn-gold full" type="submit"><svg><use href="#wa"/></svg> Send Request via WhatsApp</button>
+        <p class="note full">Your request is sent directly to Namdash Car Hire on WhatsApp.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container center">
+      <span class="eyebrow">Contact Us</span>
+      <h2 class="title">Let's Get You <span>Moving</span></h2>
+      <p class="lead">Reach us any time. We are available around the clock.</p>
+      <div class="contact-grid">
+        <div class="c-card reveal"><div class="ico"><svg><use href="#phone"/></svg></div><h3>Call</h3><a class="val" href="tel:+260974348668">+260 974 348 668</a></div>
+        <div class="c-card reveal"><div class="ico" style="color:#25d366;border-color:#25d366;background:rgba(37,211,102,.1)"><svg><use href="#wa"/></svg></div><h3>WhatsApp</h3><a class="val" href="https://wa.me/260964778720" target="_blank" rel="noopener">+260 964 778 720</a></div>
+        <div class="c-card reveal"><div class="ico"><svg><use href="#mail"/></svg></div><h3>Email</h3><a class="val" href="mailto:tembonanji2@gmail.com">tembonanji2@gmail.com</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="#home" class="brand" style="justify-content:center"><svg><use href="#wheel"/></svg><span>NAMDASH <b>CAR HIRE</b></span></a>
+    <p class="script">Your Journey, Our Priority</p>
+    <small>&copy; <span id="yr"></span> Namdash Car Hire. All rights reserved.</small>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/260964778720?text=Hello%20Namdash%20Car%20Hire%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // sticky header + mobile menu
+  const header = document.querySelector('header'), menu = document.getElementById('menu');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+  document.getElementById('burger').addEventListener('click', () => {
+    menu.classList.toggle('open'); header.classList.toggle('menu-open');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); header.classList.remove('menu-open'); }));
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // fleet buttons preselect vehicle
+  document.querySelectorAll('[data-vehicle]').forEach(b => b.addEventListener('click', () => {
+    document.getElementById('vehicle').value = b.dataset.vehicle;
+  }));
+
+  // dates: no past pickups
+  const today = new Date().toISOString().split('T')[0];
+  const pickup = document.getElementById('pickup'), ret = document.getElementById('return');
+  pickup.min = today; ret.min = today;
+  pickup.addEventListener('change', () => { ret.min = pickup.value || today; });
+
+  // booking form -> WhatsApp
+  document.getElementById('bookingForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => document.getElementById(id).value.trim();
+    if (!v('name') || !v('phone') || !v('pickup')) { alert('Please fill in your name, phone number and pickup date.'); return; }
+    const lines = [
+      'Hello Namdash Car Hire, I would like to book a vehicle.',
+      '',
+      'Name: ' + v('name'),
+      'Phone: ' + v('phone'),
+      'Vehicle: ' + v('vehicle'),
+      'Pickup date: ' + v('pickup'),
+      v('return') ? 'Return date: ' + v('return') : '',
+      v('from') ? 'Pickup location: ' + v('from') : '',
+      v('dest') ? 'Destination: ' + v('dest') : '',
+      v('msg') ? 'Details: ' + v('msg') : ''
+    ].filter((l, i) => l !== '' || i === 1);
+    window.open('https://wa.me/260964778720?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+  });
+</script>
+</body>
+</html>
